@@ -25,6 +25,7 @@
 
 // Get the list of all the sections
 const sectionList = document.querySelectorAll('section');
+console.log(sectionList);
 
 
 /**
