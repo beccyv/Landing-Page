@@ -23,6 +23,9 @@
  * 
 */
 
+// Get the list of all the sections
+const sectionList = document.querySelectorAll('section');
+
 
 /**
  * End Global Variables
