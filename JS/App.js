@@ -47,8 +47,8 @@ const buildNav = () => {
     const navItemList = document.getElementById('navbar__list');
     for (item of sectionList) {
         const navItem = document.createElement('li');
-        navItem.textContent = item.data-nav;
-        console.log(navItem, 'nav item')
+        navItem.textContent = item.getAttribute('data-nav');
+        navItemList.appendChild(navItem);
     }
 }
 
