@@ -43,6 +43,16 @@ console.log(sectionList);
 */
 
 // build the nav
+const buildNav = () => {
+    const navItemList = document.getElementById('navbar__list');
+    for (item of sectionList) {
+        const navItem = document.createElement('li');
+        navItem.textContent = item.data-nav;
+        console.log(navItem, 'nav item')
+    }
+}
+
+buildNav()
 
 
 // Add class 'active' to section when near top of viewport
