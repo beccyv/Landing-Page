@@ -34,6 +34,16 @@ console.log(sectionList);
  * 
 */
 
+// Add the active class to the element
+const addActiveClass = (element) => {
+    element.classList.add('active-class');
+}
+
+//remove active class from item with it
+const removeActiveClass = () => {
+    const element = document.querySelector('.active-class')
+    element.classList.remove('active-class');
+}
 
 
 /**
@@ -48,6 +58,7 @@ const buildNav = () => {
     for (item of sectionList) {
         const navItem = document.createElement('li');
         navItem.textContent = item.getAttribute('data-nav');
+        navItem.className = 'list-item';
         navItemList.appendChild(navItem);
     }
 }
