@@ -102,6 +102,10 @@ section {
   cursor: pointer;
 }
 
+.active {
+  color: red;
+}
+
 /* Header Styles */
 .page__header {
   background: #fff;

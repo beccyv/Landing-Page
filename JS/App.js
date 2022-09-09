@@ -45,6 +45,33 @@ const removeActiveClass = () => {
     element.classList.remove('active-class');
 }
 
+// Set up where the viewport is for intersectionobserver
+
+const options = {
+    threshold: 0.5
+}
+const obCallback=(payload)=> {
+    payload.forEach(item => {
+        const selectedSection = document.getElementById(item.target.id)
+        if (item.isIntersecting) {
+            selectedSection.classList.add('active')
+        } else {
+            selectedSection.classList.remove('active')
+        }
+        console.log(item.isIntersecting, 'item')
+    })
+    console.log(payload)
+}
+const ob = new IntersectionObserver(obCallback, options)
+for (section of sectionList) {
+    console.log(section.id)
+    ob.observe(document.getElementById(section.id))
+}
+
+
+
+
+
 
 /**
  * End Helper Functions
@@ -57,8 +84,9 @@ const buildNav = () => {
     const navItemList = document.getElementById('navbar__list');
     for (item of sectionList) {
         const navItem = document.createElement('li');
-        navItem.textContent = item.getAttribute('data-nav');
+        navItem.textContent = item.getAttribute('data-nav-link');
         navItem.className = 'list-item';
+        navItem.id = item.getAttribute('id')
         navItemList.appendChild(navItem);
     }
 }
