@@ -39,34 +39,7 @@ const addActiveClass = (element) => {
     element.classList.add('active-class');
 }
 
-//remove active class from item with it
-const removeActiveClass = () => {
-    const element = document.querySelector('.active-class')
-    element.classList.remove('active-class');
-}
 
-// Set up where the viewport is for intersectionobserver
-
-const options = {
-    threshold: 0.5
-}
-const obCallback=(payload)=> {
-    payload.forEach(item => {
-        const selectedSection = document.getElementById(item.target.id)
-        if (item.isIntersecting) {
-            selectedSection.classList.add('active')
-        } else {
-            selectedSection.classList.remove('active')
-        }
-        console.log(item.isIntersecting, 'item')
-    })
-    console.log(payload)
-}
-const ob = new IntersectionObserver(obCallback, options)
-for (section of sectionList) {
-    console.log(section.id)
-    ob.observe(document.getElementById(section.id))
-}
 
 
 
@@ -83,11 +56,15 @@ for (section of sectionList) {
 const buildNav = () => {
     const navItemList = document.getElementById('navbar__list');
     for (item of sectionList) {
+        const linkItem=document.createElement('a');
+        linkItem.href=`#${item.getAttribute('id')}`;
+        linkItem.className = 'link-item';
         const navItem = document.createElement('li');
         navItem.textContent = item.getAttribute('data-nav-link');
         navItem.className = 'list-item';
-        navItem.id = item.getAttribute('id')
-        navItemList.appendChild(navItem);
+        linkItem.id = item.getAttribute('data-nav-link')
+        linkItem.appendChild(navItem);
+        navItemList.appendChild(linkItem);
     }
 }
 
@@ -95,6 +72,26 @@ buildNav()
 
 
 // Add class 'active' to section when near top of viewport
+
+const options = {
+    threshold: 0.5
+}
+
+const obCallback=(payload)=> {
+    payload.forEach(item => {
+        const selectedSection = document.getElementById(item.target.dataset.navLink)
+        if (item.isIntersecting) {
+            selectedSection.classList.add('active')
+        } else {
+            selectedSection.classList.remove('active')
+        }
+    })
+}
+
+const ob = new IntersectionObserver(obCallback, options)
+for (section of sectionList) {
+    ob.observe(document.getElementById(section.id))
+}
 
 
 // Scroll to anchor ID using scrollTO event
