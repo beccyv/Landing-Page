@@ -16,8 +16,8 @@ This landing page project takes a skeleton page and adds navigation to it. The n
 
 The following references were used to help build this project
 
-<https://www.w3schools.com/tags/att_data-.asp>
-<https://www.w3schools.com/howto/howto_js_add_class.asp>
-<https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API>
-<https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView>
-<https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset>
+- <https://www.w3schools.com/tags/att_data-.asp>
+- <https://www.w3schools.com/howto/howto_js_add_class.asp>
+- <https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API>
+- <https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView>
+- <https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset>
