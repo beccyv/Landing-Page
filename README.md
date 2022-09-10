@@ -1,13 +1,23 @@
-# Landing Page Project
+# Rebecca V Landing Page Project
 
-## Table of Contents
+## Description
 
-- [Instructions](#instructions)
+This landing page project takes a skeleton page and adds navigation to it. The navigation items highlight when the section is visible. Clicking on the navigation items will take you to that section of the page.
 
-## Instructions
+## Contents:
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+- index.html - the html of the site
+- README.md - this page
+- gitignore - tells git which files not to upload to git
+- App.js - the file containing the JS
+- styles.css - the CSS file containing the styles
 
-To get started, open `js/app.js` and start building out the app's functionality
+## References:
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+The following references were used to help build this project
+
+<https://www.w3schools.com/tags/att_data-.asp>
+<https://www.w3schools.com/howto/howto_js_add_class.asp>
+<https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API>
+<https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView>
+<https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset>

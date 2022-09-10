@@ -22,11 +22,8 @@
  * Define Global Variables
  * 
 */
-
 // Get the list of all the sections
 const sectionList = document.querySelectorAll('section');
-
-
 /**
  * End Global Variables
  * Start Helper Functions
@@ -39,25 +36,16 @@ const addActiveClass = (element) => {
 }
 
 //Remove active class
-
 const removeActiveClass = (element) => {
     element.classList.remove('active')
 }
 
 //Handle click on nav
-
 const handleClick = (event) => {
     event.preventDefault()
     const element = document.getElementById(event.target.dataset.nav)
     element.scrollIntoView({behavior: "smooth"})
 }
-
-
-
-
-
-
-
 
 /**
  * End Helper Functions
@@ -79,9 +67,9 @@ const buildNav = () => {
     }
 }
 
-
-
-// Add class 'active' to section when near top of viewport
+/**  Add class 'active' to section when near top of viewport 
+ * (note I used intersectionObserver because I think it's better than getBoundingRect)
+ */
 
 const options = {
     threshold: 0.5
@@ -89,10 +77,13 @@ const options = {
 
 const obCallback=(payload)=> {
     payload.forEach(item => {
-        const selectedSection = document.getElementById(item.target.dataset.navLink)
+        const selectedNavSection = document.getElementById(item.target.dataset.navLink);
+        const selectedSection = document.getElementById(item.target.id);
         if (item.isIntersecting) {
+            addActiveClass(selectedNavSection)
             addActiveClass(selectedSection)
         } else {
+            removeActiveClass(selectedNavSection)
             removeActiveClass(selectedSection)
         }
     })
@@ -102,9 +93,6 @@ const ob = new IntersectionObserver(obCallback, options)
 for (section of sectionList) {
     ob.observe(document.getElementById(section.id))
 }
-
-
-
 
 /**
  * End Main Functions
