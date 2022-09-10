@@ -47,8 +47,8 @@ const removeActiveClass = (element) => {
 //Handle click on nav
 
 const handleClick = (event) => {
+    event.preventDefault()
     const element = document.getElementById(event.target.dataset.nav)
-    console.log(element, 'element')
     element.scrollIntoView({behavior: "smooth"})
 }
 
@@ -79,7 +79,6 @@ const buildNav = () => {
     }
 }
 
-buildNav()
 
 
 // Add class 'active' to section when near top of viewport
@@ -105,7 +104,6 @@ for (section of sectionList) {
 }
 
 
-// Scroll to anchor ID using scrollTO event
 
 
 /**
@@ -114,8 +112,7 @@ for (section of sectionList) {
  * 
 */
 
-// Build menu 
+//Build the nav 
+buildNav()
 
-// Scroll to section on link click
 
-// Set sections as active
