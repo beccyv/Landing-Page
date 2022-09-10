@@ -25,7 +25,6 @@
 
 // Get the list of all the sections
 const sectionList = document.querySelectorAll('section');
-console.log(sectionList);
 
 
 /**
@@ -36,7 +35,21 @@ console.log(sectionList);
 
 // Add the active class to the element
 const addActiveClass = (element) => {
-    element.classList.add('active-class');
+    element.classList.add('active');
+}
+
+//Remove active class
+
+const removeActiveClass = (element) => {
+    element.classList.remove('active')
+}
+
+//Handle click on nav
+
+const handleClick = (event) => {
+    const element = document.getElementById(event.target.dataset.nav)
+    console.log(element, 'element')
+    element.scrollIntoView({behavior: "smooth"})
 }
 
 
@@ -56,15 +69,13 @@ const addActiveClass = (element) => {
 const buildNav = () => {
     const navItemList = document.getElementById('navbar__list');
     for (item of sectionList) {
-        const linkItem=document.createElement('a');
-        linkItem.href=`#${item.getAttribute('id')}`;
-        linkItem.className = 'link-item';
         const navItem = document.createElement('li');
-        navItem.textContent = item.getAttribute('data-nav-link');
+        navItem.innerHTML = item.getAttribute('data-nav-link');
         navItem.className = 'list-item';
-        linkItem.id = item.getAttribute('data-nav-link')
-        linkItem.appendChild(navItem);
-        navItemList.appendChild(linkItem);
+        navItem.id = item.getAttribute('data-nav-link')
+        navItem.dataset.nav = (item.getAttribute('id'))
+        navItem.onclick = handleClick;
+        navItemList.appendChild(navItem);
     }
 }
 
@@ -81,9 +92,9 @@ const obCallback=(payload)=> {
     payload.forEach(item => {
         const selectedSection = document.getElementById(item.target.dataset.navLink)
         if (item.isIntersecting) {
-            selectedSection.classList.add('active')
+            addActiveClass(selectedSection)
         } else {
-            selectedSection.classList.remove('active')
+            removeActiveClass(selectedSection)
         }
     })
 }
