@@ -75,20 +75,6 @@ section {
   display: inline-block;
 }
 
-.navbar__menu .menu__link {
-  display: block;
-  padding: 1em;
-  font-weight: bold;
-  text-decoration: none;
-  color: #000;
-}
-
-.navbar__menu .menu__link:hover {
-  background: #333;
-  color: #fff;
-  transition: ease 0.3s all;
-}
-
 .navbar-list {
   background-color: black;
 }
@@ -243,6 +229,31 @@ section.active .landing__container::before {
 section.active .landing__container::after {
   opacity: 1;
   animation: rotate 5s linear 0s infinite forwards reverse;
+}
+
+/* responsive styles */
+@media screen and (max-width: 798px) {
+  .navbar__menu ul {
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar__menu ul {
+    padding: 5px;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .navbar__menu ul {
+    padding: 5px;
+    text-align: center;
+    font-size: 10px;
+  }
 }
 
 /* Section Active Styles Keyframe Animations */
